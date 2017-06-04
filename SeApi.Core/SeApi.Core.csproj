@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AF848EA0-DEE3-46C0-9226-A9E7BE71E925}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SeApi.Core</RootNamespace>
+    <AssemblyName>SeApi.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attribute\AllowAnonymousAttribute.cs" />
+    <Compile Include="Attribute\SePostAttribute.cs" />
+    <Compile Include="Attribute\SeGetAttribute.cs" />
+    <Compile Include="Attribute\AuthAttribute.cs" />
+    <Compile Include="Attribute\BasePropertyAttribute.cs" />
+    <Compile Include="Attribute\CallBackAttribute.cs" />
+    <Compile Include="Attribute\CustomerResponseAttribute.cs" />
+    <Compile Include="Attribute\DataTypeAttribute.cs" />
+    <Compile Include="Attribute\PermissionInfoAttribute.cs" />
+    <Compile Include="Attribute\RequiredAttribute.cs" />
+    <Compile Include="Attribute\StringLengthAttribute.cs" />
+    <Compile Include="Attribute\TimeInfoAttribute.cs" />
+    <Compile Include="Base\ApiBaseMethodHandler.cs" />
+    <Compile Include="Base\ApiMethodHandler.cs" />
+    <Compile Include="Base\ApiPageMethodHandler.cs" />
+    <Compile Include="Base\ApiRequest.cs" />
+    <Compile Include="Base\ApiResponse.cs" />
+    <Compile Include="Base\ApiResult.cs" />
+    <Compile Include="Base\BaseObject.cs" />
+    <Compile Include="Base\IApi.cs" />
+    <Compile Include="Base\IApiHandler.cs" />
+    <Compile Include="Base\PageRequest.cs" />
+    <Compile Include="Base\PageResponse.cs" />
+    <Compile Include="Cache\DataCache.cs" />
+    <Compile Include="Checker\AnonymousChecker.cs" />
+    <Compile Include="Checker\AuthChecker.cs" />
+    <Compile Include="Checker\CallBackChecker.cs" />
+    <Compile Include="Checker\CustomerResponseChecker.cs" />
+    <Compile Include="Checker\RequestChecker.cs" />
+    <Compile Include="Checker\SignChecker.cs" />
+    <Compile Include="Checker\SystemParamsChecker.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Model\RequestData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\ApiProvider.cs" />
+    <Compile Include="Provider\Executor.cs" />
+    <Compile Include="Provider\PluginProvider.cs" />
+    <Compile Include="Provider\ProviderFactory.cs" />
+    <Compile Include="Provider\WebProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Se.Common\SeApi.Common.csproj">
+      <Project>{0e3322a6-b958-49af-a72f-0d6ce18f792e}</Project>
+      <Name>SeApi.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
