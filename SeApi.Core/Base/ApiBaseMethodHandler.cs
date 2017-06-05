@@ -58,8 +58,7 @@ namespace SeApi.Core.Base
                     {
                         RequestChecker.Check(request);
                     }
-                    SeLog.Log.Fatal("123");
-
+                    log4net.Ext.IExtLog log = log4net.Ext.ExtLogManager.GetLogger("filelog");
                     var response = Invoke(request);
 
                     if (!response.IsNull())
@@ -83,21 +82,22 @@ namespace SeApi.Core.Base
             }
             catch (ApiException apiex)
             {
+                //可以在异常的时候多记录一些东西
+                SeLog.Log.Error("apiex Error:",apiex);
                 return ApiResult.CreateErrorResult(requestData.RequestId, apiex.Type, apiex.Message);
             }
             catch (BusinessException businessex)
             {
+                //可以在异常的时候多记录一些东西
+                SeLog.Log.Error("businessex Error:", businessex);
                 return ApiResult.CreateErrorResult(requestData.RequestId, ResponseType.Business_Error, businessex.Message);
-            }
-            catch (AuthException authex)
-            {
-                return ApiResult.CreateErrorResult(requestData.RequestId, ResponseType.Auth_Error, authex.Message);
             }
             catch (Exception ex)
             {
+                //可以在异常的时候多记录一些东西
+                SeLog.Log.Error("ex Error:", ex);
                 return ApiResult.CreateErrorResult(requestData.RequestId, ResponseType.Error, ex.Message);
             }
-            //注意在api异常里面记录日志，暂时没有提供
         }
 
         private TParam ConverRequestObject(IDictionary<string, string> requestString)
