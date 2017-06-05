@@ -10,7 +10,7 @@ using TempApi.Response;
 
 namespace TempApi.Handler
 {
-    [SePost]
+    [SeGet]
     public class TempData : ApiMethodHandler<TempResponse, TempDataRequest>
     {
         public override TempResponse Invoke(TempDataRequest request)
@@ -25,3 +25,5 @@ namespace TempApi.Handler
         }
     }
 }
+
+

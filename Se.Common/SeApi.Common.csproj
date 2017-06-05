@@ -33,6 +33,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\Lib\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -54,11 +57,18 @@
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TimeExtensions.cs" />
+    <Compile Include="Log4NetEx\ExtLogImpl.cs" />
+    <Compile Include="Log4NetEx\ExtLogManager.cs" />
+    <Compile Include="Log4NetEx\IExtLog.cs" />
+    <Compile Include="Log4NetEx\SeLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponseCode\ResponseType.cs" />
     <Compile Include="Utils\SecurityHelper.cs" />
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="Utils\WebUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

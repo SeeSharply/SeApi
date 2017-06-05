@@ -1,4 +1,5 @@
-﻿using SeApi.Core.Provider;
+﻿using log4net.Config;
+using SeApi.Core.Provider;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace SeApi
             //RouteTable.Routes.Add(new Route("api/login", new LoginRouteHandler()));
             //注册restfull路由地址
             RestRoute.Regist(RouteTable.Routes);
+            XmlConfigurator.Configure(); 
         }
 
        

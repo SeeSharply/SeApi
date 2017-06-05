@@ -9,6 +9,7 @@ using SeApi.Core.Checker;
 using SeApi.Core.Provider;
 using Newtonsoft.Json;
 using SeApi.Core.Model;
+using SeApi.Common;
 namespace SeApi.Core.Base
 {
     public abstract class ApiBaseMethodHandler<TResult, TParam> : IApiHandler<TResult, TParam> where TResult : ApiResponse, new() where TParam : ApiRequest
@@ -30,11 +31,11 @@ namespace SeApi.Core.Base
                 else
                 {
                     //系统参数检查
-                    SystemParamsChecker.Check(requestString);
+                   // SystemParamsChecker.Check(requestString);
 
                     //在这里可以做其他操作，比如某些特性的接口既不用检测sign，也不用检测token
                     //带有AnonymousChecker的接口可以任意访问不需要token
-                    AnonymousChecker.Check(this);
+                    //AnonymousChecker.Check(this);
 
                     //这里检测 签名
                     //签名规则可以自定义，在cheker里面修改就行了，如果不需要，就直接不做
@@ -57,7 +58,7 @@ namespace SeApi.Core.Base
                     {
                         RequestChecker.Check(request);
                     }
-
+                    SeLog.Log.Fatal("123");
 
                     var response = Invoke(request);
 
