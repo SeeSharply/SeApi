@@ -51,9 +51,12 @@
     <Compile Include="Attribute\AllowAnonymousAttribute.cs" />
     <Compile Include="Attribute\SePostAttribute.cs" />
     <Compile Include="Attribute\SeGetAttribute.cs" />
+    <Compile Include="Attribute\AuthAttribute.cs" />
     <Compile Include="Attribute\BasePropertyAttribute.cs" />
     <Compile Include="Attribute\CallBackAttribute.cs" />
     <Compile Include="Attribute\CustomerResponseAttribute.cs" />
+    <Compile Include="Attribute\DataTypeAttribute.cs" />
+    <Compile Include="Attribute\PermissionInfoAttribute.cs" />
     <Compile Include="Attribute\RequiredAttribute.cs" />
     <Compile Include="Attribute\StringLengthAttribute.cs" />
     <Compile Include="Attribute\TimeInfoAttribute.cs" />
@@ -70,6 +73,7 @@
     <Compile Include="Base\PageResponse.cs" />
     <Compile Include="Cache\DataCache.cs" />
     <Compile Include="Checker\AnonymousChecker.cs" />
+    <Compile Include="Checker\AuthChecker.cs" />
     <Compile Include="Checker\CallBackChecker.cs" />
     <Compile Include="Checker\CustomerResponseChecker.cs" />
     <Compile Include="Checker\RequestChecker.cs" />
